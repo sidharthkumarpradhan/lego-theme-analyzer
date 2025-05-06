@@ -9,10 +9,15 @@ import urllib.request
 import traceback
 from io import BytesIO
 from datetime import datetime
-from logger_config import get_logger
+import logging  
 
-# Get logger for this module using centralized configuration
-logger = get_logger(__name__)
+# Configure Python's built-in logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
 
 class RebrickableAPI:
     """
