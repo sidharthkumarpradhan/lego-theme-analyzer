@@ -2,10 +2,15 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import traceback
-from logger_config import get_logger
+import logging  
 
-# Initialize logger for this module
-logger = get_logger(__name__)
+# Configure Python's built-in logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
 
 class OverlapAnalyzer:
     """

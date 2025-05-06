@@ -9,10 +9,15 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
-from logger_config import get_logger
+import logging  
 
-# Initialize logger for this module
-logger = get_logger(__name__)
+# Configure Python's built-in logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
 
 class ThemePredictor:
     """

@@ -10,10 +10,16 @@ import json
 import os
 import sqlite3
 import traceback
-from logger_config import get_logger
 
-# Initialize logger for this module
-logger = get_logger(__name__)
+
+# Configure Python's built-in logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
+
 from rebrickable_api import RebrickableAPI
 from data_processor import DataProcessor
 from theme_predictor import ThemePredictor
